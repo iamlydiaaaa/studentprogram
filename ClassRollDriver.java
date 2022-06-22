@@ -1,6 +1,56 @@
-package students;
-
 import java.util.Scanner;
+
+//Student.java: 출석부의 한 학생을 나타낸다.
+public class Student
+{
+	public int number;	// 학번
+	public String name;	// 이름
+
+
+	//toString 적극활용해주세요~
+	public Student() {
+	}
+	public Student(int num, String nam) {
+		this();
+		number = num;
+		name = nam;
+	}
+}
+
+public class ClassRoll {
+
+	String coursename;
+	String nameArr[] = new String[10];
+	int numArr[] = new int[10];
+	int count = 0;
+
+	public void ClassRoll() {
+
+	}
+
+	void coursename() {
+		coursename = " ";
+	}
+
+	void add(Student student) {
+		nameArr[count] = student.name;
+		numArr[count] = student.number;
+		count++;
+	}
+
+	String search(int number) {
+		String searchName = null;
+		for(int i = 0; i < numArr.length; i++) {
+			if(number == numArr[i]) searchName = nameArr[i];
+		}
+
+		if(searchName == null) {
+			System.out.println("주어진 사람이 출석부에 없습니다");
+		}
+		return searchName;
+	}
+}
+
 
 public class ClassRollDriver
 {
